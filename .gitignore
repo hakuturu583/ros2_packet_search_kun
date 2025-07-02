@@ -177,3 +177,50 @@ Thumbs.db
 install/
 log/
 build/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+docker-compose.prod.yml
+
+# Docker volumes and data
+docker-data/
+prometheus_data/
+grafana_data/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite3-journal
+*.db-wal
+*.db-shm
+
+# Prometheus/Monitoring data
+prometheus/
+grafana/
+alertmanager/
+
+# Time series databases
+influxdb/
+chronograf/
+kapacitor/
+
+# Other databases
+*.mdb
+*.accdb
+*.fdb
+*.gdb
+*.pdb
+
+# Lock files
+package-lock.json
+yarn.lock
+uv.lock
+pdm.lock
+poetry.lock
+
+# Temporary monitoring files
+metrics.txt
+*.tsdb

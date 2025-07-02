@@ -11,6 +11,7 @@ dependencies = []
 
 [project.scripts]
 dds-monitor = "ros2_packet_search_kun.dds_socket_monitor:main"
+dds-prometheus = "ros2_packet_search_kun.prometheus_exporter:main"
 
 [build-system]
 requires = ["hatchling"]

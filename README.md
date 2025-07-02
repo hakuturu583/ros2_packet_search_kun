@@ -30,6 +30,18 @@ Monitor with custom interval:
 dds-monitor --interval 10.0
 ```
 
+### Docker Compose (with Prometheus & Grafana)
+
+Run the complete monitoring stack:
+```bash
+docker-compose up -d
+```
+
+Access the services:
+- **DDS Metrics**: http://localhost:8000/metrics
+- **Prometheus**: http://localhost:9090
+- **Grafana**: http://localhost:3000 (admin/admin)
+
 ### Python API
 
 ```python
@@ -44,6 +56,11 @@ monitor_dds_packets_no_sudo(report_interval=10.0)
 # Use the class directly for more control
 monitor = DDSSocketMonitor(report_interval=5.0)
 monitor.start_monitoring()
+
+# Prometheus exporter
+from ros2_packet_search_kun.prometheus_exporter import PrometheusExporter
+exporter = PrometheusExporter(port=8000, monitor_interval=5.0)
+exporter.start()
 ```
 
 ## Requirements
