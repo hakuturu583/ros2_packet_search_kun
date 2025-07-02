@@ -1,0 +1,126 @@
+{
+  "id": null,
+  "title": "DDS Packet Monitoring",
+  "tags": ["dds", "ros2"],
+  "timezone": "browser",
+  "panels": [
+    {
+      "id": 1,
+      "title": "DDS Packet Rate by Source",
+      "type": "timeseries",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+      "targets": [
+        {
+          "expr": "dds_packet_rate",
+          "legendFormat": "{{source_ip}}",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "pps",
+          "min": 0
+        }
+      },
+      "options": {
+        "legend": {
+          "displayMode": "visible"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "Active DDS Sources",
+      "type": "stat",
+      "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0},
+      "targets": [
+        {
+          "expr": "dds_active_sources",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "title": "Total DDS Packets/sec",
+      "type": "stat",
+      "gridPos": {"h": 4, "w": 6, "x": 18, "y": 0},
+      "targets": [
+        {
+          "expr": "sum(rate(dds_packets_total[5m]))",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "pps"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "title": "DDS Data Volume by Source",
+      "type": "timeseries",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+      "targets": [
+        {
+          "expr": "rate(dds_bytes_total[5m])",
+          "legendFormat": "{{source_ip}}",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps",
+          "min": 0
+        }
+      }
+    },
+    {
+      "id": 5,
+      "title": "Total DDS Bytes",
+      "type": "stat",
+      "gridPos": {"h": 4, "w": 6, "x": 12, "y": 8},
+      "targets": [
+        {
+          "expr": "sum(dds_bytes_total)",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "title": "Total DDS Packets",
+      "type": "stat",
+      "gridPos": {"h": 4, "w": 6, "x": 18, "y": 8},
+      "targets": [
+        {
+          "expr": "sum(dds_packets_total)",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        }
+      }
+    }
+  ],
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "refresh": "5s",
+  "schemaVersion": 30,
+  "version": 1
+}

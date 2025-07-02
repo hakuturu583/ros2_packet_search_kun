@@ -13,7 +13,7 @@ scrape_configs:
 
   - job_name: 'dds-monitor'
     static_configs:
-      - targets: ['dds-monitor:8000']
+      - targets: ['localhost:8000']
     scrape_interval: 5s
     metrics_path: /metrics
     scheme: http
