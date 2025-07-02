@@ -24,8 +24,22 @@ A Python package for ROS2 packet searching functionality.
 ## Build Commands
 - Build: `python -m build`
 - Install: `pip install -e .`
+- Run: `dds-monitor`
 
-## Notes
-- This is a new project with minimal structure
-- README.md is currently empty
-- Main package code is in `src/ros2_packet_search_kun/`
+## Features
+- Socket-based DDS packet monitoring (no sudo required)
+- Real-time packet statistics by source IP
+- Configurable reporting intervals
+- RTPS header detection
+
+## Usage
+```bash
+# Install and run
+pip install -e .
+dds-monitor --interval 5.0
+```
+
+## Implementation
+- `dds_socket_monitor.py`: Main monitoring functionality using multicast sockets
+- No external dependencies required
+- Works with any ROS2 installation

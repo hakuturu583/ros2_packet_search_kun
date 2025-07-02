@@ -9,6 +9,9 @@ authors = [
 requires-python = ">=3.10"
 dependencies = []
 
+[project.scripts]
+dds-monitor = "ros2_packet_search_kun.dds_socket_monitor:main"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
